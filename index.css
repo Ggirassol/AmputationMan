@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+.man {
+    font-size: 10vh;
+    letter-spacing: -1px;
+    text-align: center;
+    margin: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5%;
+    gap: 3vh;
+    justify-content: center;
+}
+
+#keyboard button {
+    height: 8vh;
+    width: 8vh;
+    font-size: 6vh;
+    padding: 1vh;
+    border-radius: 5px;
+}
+
+#head {
+    height: 8vh;
+    width: 8vh;
+    background-color: black;
+    border-radius: 50%;
+}
+
+#torso {
+    border-left: 0.5vh solid black;
+    border-right: 0.5vh solid black;
+    height: 16vh;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+#left-arm {
+    border-right: 1vh solid black;
+    height: 10vh;
+    display: inline-block;
+    transform: translateX(-200%) rotate(-60deg);
+}
+
+#right-arm {
+    border-right: 1vh solid black;
+    height: 10vh;
+    display: inline-block;
+    transform: translateX(200%) rotate(60deg);
+}
+
+#left-leg {
+    border-right: 1vh solid black;
+    height: 10vh;
+    display: inline-block;
+    transform: translateX(-130%) translateY(20%) rotate(-145deg);
+}
+
+#right-leg {
+    border-right: 1vh solid black;
+    height: 10vh;
+    display: inline-block;
+    transform: translateX(130%)translateY(20%) rotate(145deg);
+}
+
+.foggy-blue {
+    background-color: rgb(33, 183, 224);
+    opacity: 30%;
+}
+
+.blue {
+    background-color: rgb(33, 183, 224);
+}
+
+#hint {
+    text-align: center;
+}
+
+#current-word {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
+    
+}
+
+.empty {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.letter {
+    font-size: xx-large;
+}

@@ -1,6 +1,5 @@
 import words from "./words.js";
 
-let isItGameOver = false;
 let indexHistory = [];
 const keyboard = document.getElementById("keyboard");
 const currWord = document.getElementById("current-word");

@@ -14,40 +14,51 @@ function getCurrRandomIndex() {
   return randomIndex;
 }
 
-let pick = words[getCurrRandomIndex()];
-
-let hint = pick.hint;
-
+let pick;
 let displayWord;
-
 let displayWordObj = {};
-
-for (let i=0; i<pick.word.length; i++) {
- displayWordObj[i+1] = {
-  letter: pick.word[i],
-  show: "no"
-  }
-}
 
 console.log(displayWordObj)
 
-currHint.innerText = hint;
-
-for (let i = 0; i < pick.word.length; i++) {
-  const currWorldLetter = document.createElement("span");
-  currWorldLetter.innerText = "_";
-  currWorldLetter.className = "letter";
-  currWord.appendChild(currWorldLetter);
-  displayWord += "_"
+function setPick() {
+  pick = words[getCurrRandomIndex()];
 }
 
-for (let i = 65; i <= 90; i++) {
-  const letterButton = document.createElement("button");
-  letterButton.innerText = String.fromCharCode(i);
-  letterButton.className = "blue";
-  letterButton.addEventListener("click", letterClicked);
-  keyboard.appendChild(letterButton);
+function setHint() {
+  currHint.innerText = pick.hint;
 }
+
+function setKeyboard() {
+  for (let i = 65; i <= 90; i++) {
+    const letterButton = document.createElement("button");
+    letterButton.innerText = String.fromCharCode(i);
+    letterButton.className = "blue";
+    letterButton.addEventListener("click", letterClicked);
+    keyboard.appendChild(letterButton);
+}
+}
+
+function setEmptyWordState() {
+  for (let i = 0; i < pick.word.length; i++) {
+    const currWorldLetter = document.createElement("span");
+    currWorldLetter.innerText = "_";
+    currWorldLetter.className = "letter";
+    currWord.appendChild(currWorldLetter);
+    displayWord += "_";
+
+    displayWordObj[i+1] = {
+      letter: pick.word[i],
+      show: "no"
+      }
+  }
+}
+
+function removeAllChild(id) {
+  while (id.hasChildNodes()) {
+      id.removeChild(id.firstChild)
+  }
+}
+
 
 function letterClicked(event) {
   const letterButton = event.target;
@@ -73,10 +84,10 @@ function letterClicked(event) {
         newWord += "_";
       }
     }
+
     displayWord = newWord;
-    while (currWord.hasChildNodes()) {
-        currWord.removeChild(currWord.firstChild)
-    }
+    removeAllChild(currWord);
+
     for (let i=0; i < newWord.length; i++) {
         const currWorldLetter = document.createElement("span");
         currWorldLetter.innerText = newWord[i];
@@ -84,9 +95,32 @@ function letterClicked(event) {
         currWord.appendChild(currWorldLetter);
     }
   }
+
+  let guessedLetters = 0;
+  for (const position in displayWordObj) {
+    if (displayWordObj[position].show === "yes") {
+      guessedLetters += 1
+    }
+  }
+
+  console.log(guessedLetters, displayWord.length)
+  if (guessedLetters === displayWord.length) {
+    removeAllChild(currWord);
+    removeAllChild(currHint);
+    removeAllChild(keyboard)
+    setPick();
+    setHint();
+    setKeyboard();
+    displayWordObj = {};
+    setEmptyWordState();
+
+  }
 }
 
-
+setPick();
+setHint();
+setEmptyWordState();
+setKeyboard();
 
 console.log(pick);
 

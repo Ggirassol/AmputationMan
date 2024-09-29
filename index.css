@@ -3,6 +3,12 @@
     border: 0;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .man {
     font-size: 10vh;
     letter-spacing: -1px;
@@ -94,7 +100,24 @@
     
 }
 
-.empty {
+#restart-game {
+    position: absolute;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#game-over, #the-end {
+    font-size: 7vh;
+    color: red;
+}
+
+#restart-btn {
+    padding: 2vh;
+    border: 0.5vh solid black;
+    margin: 5vh;
+}
+
+.invisible {
     visibility: hidden;
 }
 

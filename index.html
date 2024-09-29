@@ -9,25 +9,32 @@
 </head>
 
 <body>
-    <div class="man">
-        <p id="head"></p>
-        <p>
-            <span id="left-arm"></span>
-            <span id="torso"></span>
-            <span id="right-arm"></span>
-        </p>
-        <p>
-            <span id="left-leg"></span>
-            <span id="right-leg"></span>
-        </p>
+    <div id="restart-game">
+        <p id="game-over">GAME OVER!</p>
+        <p id="the-end">THE END</p>
+        <button id="restart-btn">restart</button>
     </div>
-    <div>
-        <p id="hint"></p>
-    </div>
-    <div>
-        <p id="current-word"></p>
-    </div>
-    <div id="keyboard">
+    <div id="game">
+        <div class="man">
+            <p id="head"></p>
+            <p>
+                <span id="left-arm"></span>
+                <span id="torso"></span>
+                <span id="right-arm"></span>
+            </p>
+            <p>
+                <span id="left-leg"></span>
+                <span id="right-leg"></span>
+            </p>
+        </div>
+        <div>
+            <p id="hint"></p>
+        </div>
+        <div>
+            <p id="current-word"></p>
+        </div>
+        <div id="keyboard">
+        </div>
     </div>
     <script type="module" src="index.js"></script>
 </body>
